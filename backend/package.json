@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "test": "cross-env NODE_ENV=test jest --testTimeout=10000"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -12,5 +13,28 @@
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
     "morgan": "~1.9.1"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "jest": "^28.1.1",
+    "supertest": "^6.2.3"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "./routes/**"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "lines": 100
+      }
+    },
+    "roots": [
+      "./tests"
+    ]
   }
 }
