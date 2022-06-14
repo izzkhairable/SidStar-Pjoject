@@ -1,0 +1,25 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: [ main,  "#[0-9]*"]
+  pull_request:
+    branches: [ "#[0-9]*" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [10.x, 12.x, 14.x, 15.x]
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup and run tests
+        working-directory: ./app
+        run: |
+            npm install
+            npm start
+            npm test
