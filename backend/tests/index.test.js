@@ -9,6 +9,6 @@ describe('Root Endpoint', () => {
 
     it('GET / should show all users', async () => {
         const res = await requestWithSupertest.get('/');
-        expect(res.status).toEqual(400);
+        expect(res.status).toEqual(200);
     });
 });
