@@ -12,3 +12,4 @@ describe('Root Endpoint', () => {
         expect(res.status).toEqual(200);
     });
 });
+// Test CI Response to backend path
