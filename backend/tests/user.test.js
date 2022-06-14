@@ -11,6 +11,6 @@ describe('User Endpoints', () => {
         const res = await requestWithSupertest.get('/users');
         expect(res.status).toEqual(200);
         expect(res.type).toEqual(expect.stringContaining('json'));
-        expect(res.body).toHaveProperty('users')
+        expect(res.body).toHaveProperty('worker')
     });
 });
