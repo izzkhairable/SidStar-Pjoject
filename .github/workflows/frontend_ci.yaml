@@ -4,11 +4,11 @@ on:
   push:
     branches: [ main,  "#[0-9]*"]
     paths:
-      - './frontend/*'
+      - './frontend'
   pull_request:
     branches: [ "#[0-9]*" ]
     paths:
-      - './frontend/*'
+      - './frontend'
 
 jobs:
   build:
