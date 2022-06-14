@@ -28,5 +28,7 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v3
         with:
+          context: ./backend
+          file: ./backend/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/sid_stat_backend:latest
