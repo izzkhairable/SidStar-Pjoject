@@ -8,9 +8,7 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [ 12.x, 14.x, 15.x]
@@ -24,4 +22,9 @@ jobs:
         working-directory: ./backend
         run: |
             npm install
+            DEBUG=backend:*
             npm test
+            npm start & npx wait-on http://localhost:3000
+        env:
+          CI: true
+          DEBUG: backend:*
