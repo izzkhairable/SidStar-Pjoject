@@ -15,7 +15,6 @@ import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import { useState, useEffect } from 'react';
 function App(props) {
 	const { window } = props;
 	const [mobileOpen, setMobileOpen] = React.useState(false);
