@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import App from '../App';
 
-test('Sanity Test', () => {
+test('Display Main Div', () => {
   render(<App />);
-  expect(screen.getByRole('heading', { level: 5 })).toBeInTheDocument();
+  expect(screen.getByText('Simplified App to Init CI')).toBeInTheDocument();
 });
