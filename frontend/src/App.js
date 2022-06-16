@@ -1,7 +1,18 @@
 import * as React from 'react';
-
+import MainDrawer from './components/MainDrawer'
+import Box from '@mui/material/Box';
+import DrawerHeader from './components/DrawerHeader';
+import MainTable from './components/MainTable';
 function App(props) {
-	return (<div id="main-div">Simplified App to Init CI</div>)
+	return (<>
+	    <Box sx={{ display: 'flex' }}>
+		<MainDrawer props={props}></MainDrawer>
+	     <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+        	<DrawerHeader/>
+			<MainTable></MainTable>
+      		</Box>
+    	</Box>
+	</>)
 }
 
 export default App;
