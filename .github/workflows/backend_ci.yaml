@@ -32,3 +32,4 @@ jobs:
         env:
           CI: true
           DEBUG: backend:*
+          API_KEY: ${{ secrets.API_KEY }
