@@ -19,7 +19,7 @@ const TopBar=({open, handleDrawerOpen})=>  (<AppBar position="fixed" open={open}
     <MenuIcon />
   </IconButton>
   <Typography variant="h6" noWrap component="div">
-    Mini variant drawer
+    SID-STAR Project
   </Typography>
 </Toolbar>
 </AppBar>)

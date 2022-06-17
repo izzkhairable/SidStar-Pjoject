@@ -200,7 +200,7 @@ EnhancedTableToolbar.propTypes = {
     numSelected: PropTypes.number.isRequired,
 };
 
-function MainTable() {
+function MainTable({addAirport, setHoveredAirport}) {
     const [order, setOrder] = React.useState('asc');
     const [orderBy, setOrderBy] = React.useState('calories');
     const [selected, setSelected] = React.useState([]);
@@ -215,6 +215,7 @@ function MainTable() {
 
     const getRows = async () => await airports().then(
         (raw_rows) => raw_rows.map((row) => {
+            addAirport(row)
             return createData(row.name, row.icao, row.lat, row.lng, row.alt)
         }))
         .then((rows) => {
@@ -311,6 +312,7 @@ function MainTable() {
                                             tabIndex={-1}
                                             key={row.name}
                                             selected={isItemSelected}
+                                            onMouseEnter={()=>{setHoveredAirport(row)}}
                                         >
                                             <TableCell
                                                 component="th"
