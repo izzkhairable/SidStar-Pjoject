@@ -1,8 +1,8 @@
 FROM node:13.12.0-alpine
-RUN --mount=type=secret,id=API_KEY \
-  export API_PASSWORD=$(cat /run/secrets/API_PASSWORD) 
 COPY package.json ./
 COPY package-lock.json ./
 RUN npm install
 COPY . ./
-CMD npm start
+RUN --mount=type=bind,target=. \
+  --mount=type=secret,id=API_KEY \
+  API_KEY=$(cat /run/secrets/API_KEY) npm start
