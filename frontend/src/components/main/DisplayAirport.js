@@ -1,8 +1,8 @@
 import * as React from 'react';
-import MainTable from '../MainTable';
+import AirportTable from '../AirportTable';
 import Map from '../Map'
 
-function DisplayAirport(props) {
+function DisplayAirport({setSelectedAirport, setSelectedSidOrStar}) {
 	const [airports, setAirports] = React.useState([])
 	const [hoveredAirport, setHoveredAirport] = React.useState(null)
 	const addAirport = (newAirport) => {
@@ -10,11 +10,14 @@ function DisplayAirport(props) {
 		copy.push(newAirport)
 		setAirports(copy)
 	}
+
+	React.useEffect(()=>{
+		setSelectedAirport(hoveredAirport)
+	},[hoveredAirport])
+
 	return (<>
-
 		<Map airports={airports} hoveredAirport={hoveredAirport} />
-		<MainTable addAirport={addAirport} setHoveredAirport={setHoveredAirport}></MainTable>
-
+		<AirportTable addAirport={addAirport} setHoveredAirport={setHoveredAirport} setSelectedSidOrStar={setSelectedSidOrStar}></AirportTable>
 	</>)
 }
 
