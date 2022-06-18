@@ -207,10 +207,11 @@ function MainTable({addAirport, setHoveredAirport}) {
     const [dense, setDense] = React.useState(false);
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
     const [rows, setRows] = React.useState([]);
-
+    
     React.useEffect(() => {
         getRows()
-    }, [])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[])
 
     const getRows = async () => await airports().then(
         (raw_rows) => raw_rows.map((row) => {
@@ -231,7 +232,7 @@ function MainTable({addAirport, setHoveredAirport}) {
     const handleSelectAllClick = (event) => {
         if (event.target.checked) {
             const newSelecteds = rows.map((n) => n.name);
-            setSelected(newSelecteds[-1]);
+            setSelected(newSelecteds);
             return;
         }
         setSelected([]);
@@ -255,7 +256,6 @@ function MainTable({addAirport, setHoveredAirport}) {
         }
 
         setSelected(newSelected);
-        console.log("This is selected", selected)
     };
 
     const handleChangePage = (event, newPage) => {

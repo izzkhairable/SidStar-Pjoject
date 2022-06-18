@@ -19,7 +19,7 @@ jest.mock("node-fetch", () => (url, data) => {
     }
 });
 
-describe('Airport Endpoint', () => {
+describe('Airport Endpoint Backend', () => {
     it('GET /airports should get all airports', async () => {
         const res = await requestWithSupertest.get('/airports');
         expect(res.status).toEqual(200);

@@ -28,7 +28,7 @@ jobs:
             npm install
             DEBUG=backend:*
             npm test
-            npm start & npx wait-on --httpTimeout=5000 http://localhost:3000
+            npm start & npx wait-on --httpTimeout=5000 http://localhost:3333
         env:
           CI: true
           DEBUG: backend:*
