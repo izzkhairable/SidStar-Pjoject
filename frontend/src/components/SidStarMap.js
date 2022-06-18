@@ -3,7 +3,7 @@ import { MapContainer, TileLayer, useMap, Polyline, CircleMarker, Marker} from '
 import StarSidLine from './SidStarLine'
 import L from 'leaflet';
 import * as React from 'react';
-const Map = ({sidsStars,selectedSidOrStarDropdown, selectedAirport}) => {
+const Map = ({sidsStars,selectedSidOrStarDropdown, selectedAirport,selectedSidOrStar}) => {
     const [polylineData, setPolylineData]=React.useState(null)
  
 
@@ -21,11 +21,17 @@ const Map = ({sidsStars,selectedSidOrStarDropdown, selectedAirport}) => {
     const DisplayAirportMarkers=()=>{
         if(selectedSidOrStarDropdown){
             
-                let polylineSingle=[[selectedAirport.lat, selectedAirport.lng]]
+                let polylineSingle=[]
                 selectedSidOrStarDropdown.waypoints.map((waypoint)=>{
                     polylineSingle.push([waypoint.lat, waypoint.lng])
                     return waypoint
                 })
+                if(selectedSidOrStar==='stars'){
+                    polylineSingle.push([selectedAirport.lat, selectedAirport.lng])
+                }else if(selectedSidOrStar==='sids'){
+                    polylineSingle.unshift([selectedAirport.lat, selectedAirport.lng])
+                }
+                
             setPolylineData([polylineSingle])
         }
         else{

@@ -19,7 +19,7 @@ function DisplaySidStar({selectedSidOrStar, selectedAirport}) {
 	}, [sidsStars])
 
 	return (<>
-		<SidStarMap sidsStars={sidsStars} selectedSidOrStarDropdown={selectedSidOrStarDropdown} selectedAirport={selectedAirport}/>
+		<SidStarMap sidsStars={sidsStars} selectedSidOrStarDropdown={selectedSidOrStarDropdown} selectedAirport={selectedAirport} selectedSidOrStar={selectedSidOrStar}/>
 		<Stack direction="row" gap={2} >
 		<SidStarTable addSidsStars={addSidsStars} selectedAirport={selectedAirport} selectedSidOrStar={selectedSidOrStar} setSelectedSidOrStarDropdown={setSelectedSidOrStarDropdown}></SidStarTable>
 		<WaypointTable selectedAirport={selectedAirport} selectedSidOrStar={selectedSidOrStar}></WaypointTable>

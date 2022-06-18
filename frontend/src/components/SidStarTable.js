@@ -52,14 +52,16 @@ function Row(props) {
               <Table size="small" aria-label="purchases">
                 <TableHead>
                   <TableRow>
+                    <TableCell>Point</TableCell>
                     <TableCell>Name</TableCell>
                     <TableCell>Lat</TableCell>
                     <TableCell>Lng</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {row.waypoints.map((waypoint) => (
+                  {row.waypoints.map((waypoint,index) => (
                     <TableRow key={waypoint.uid}>
+                      <TableCell>{index+2}</TableCell>
                       <TableCell component="th" scope="row">
                         {waypoint.name}
                       </TableCell>
