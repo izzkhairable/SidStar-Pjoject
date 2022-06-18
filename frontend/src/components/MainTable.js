@@ -17,10 +17,13 @@ import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
-import DeleteIcon from '@mui/icons-material/Delete';
+import Button from '@mui/material/Button';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import { visuallyHidden } from '@mui/utils';
 import airports from '../get/airports';
+import FlightLandIcon from '@mui/icons-material/FlightLand';
+import FlightTakeoffIcon from '@mui/icons-material/FlightTakeoff';
+import Stack from '@mui/material/Stack';
 function createData(   name,
     icao,
     lat,
@@ -145,27 +148,27 @@ EnhancedTableHead.propTypes = {
 };
 
 const EnhancedTableToolbar = (props) => {
-    const { numSelected } = props;
+    const { selected } = props;
 
     return (
         <Toolbar
             sx={{
                 pl: { sm: 2 },
                 pr: { xs: 1, sm: 1 },
-                ...(numSelected > 0 && {
+                ...(selected.length > 0 && {
                     bgcolor: (theme) =>
                         alpha(theme.palette.primary.main, theme.palette.action.activatedOpacity),
                 }),
             }}
         >
-            {numSelected > 0 ? (
+            {selected.length > 0 ? (
                 <Typography
                     sx={{ flex: '1 1 100%' }}
                     color="inherit"
                     variant="subtitle1"
                     component="div"
                 >
-                    {numSelected} selected
+                    {selected[0]} selected
                 </Typography>
             ) : (
                 <Typography
@@ -178,12 +181,16 @@ const EnhancedTableToolbar = (props) => {
                 </Typography>
             )}
 
-            {numSelected > 0 ? (
-                <Tooltip title="Delete">
-                    <IconButton>
-                        <DeleteIcon />
-                    </IconButton>
+            {selected.length > 0 ? (
+                <Stack spacing={2} direction="row">
+                <Tooltip title="View SID">
+                    <Button variant="contained" color="success" startIcon={<FlightTakeoffIcon />}>SIDs</Button>
                 </Tooltip>
+                <Tooltip title="View Star">
+                    <Button variant="contained" color="success" startIcon={<FlightLandIcon />}>STARs</Button>
+                </Tooltip>
+                </Stack>
+             
             ) : (
                 <Tooltip title="Filter list">
                     <IconButton>
@@ -196,7 +203,7 @@ const EnhancedTableToolbar = (props) => {
 };
 
 EnhancedTableToolbar.propTypes = {
-    numSelected: PropTypes.number.isRequired,
+    selected: PropTypes.array,
 };
 
 function MainTable({addAirport, setHoveredAirport}) {
@@ -239,23 +246,23 @@ function MainTable({addAirport, setHoveredAirport}) {
     };
 
     const handleClick = (event, name) => {
-        const selectedIndex = selected.indexOf(name);
-        let newSelected = [];
+        // const selectedIndex = selected.indexOf(name);
+        // console.log("This is selected", selected)
+        // let newSelected = [];
         
-        if (selectedIndex === -1) {
-            newSelected = newSelected.concat(selected, name);
-        } else if (selectedIndex === 0) {
-            newSelected = newSelected.concat(selected.slice(1));
-        } else if (selectedIndex === selected.length - 1) {
-            newSelected = newSelected.concat(selected.slice(0, -1));
-        } else if (selectedIndex > 0) {
-            newSelected = newSelected.concat(
-                selected.slice(0, selectedIndex),
-                selected.slice(selectedIndex + 1),
-            );
-        }
-
-        setSelected(newSelected);
+        // if (selectedIndex === -1) {
+        //     newSelected = newSelected.concat(selected, name);
+        // } else if (selectedIndex === 0) {
+        //     newSelected = newSelected.concat(selected.slice(1));
+        // } else if (selectedIndex === selected.length - 1) {
+        //     newSelected = newSelected.concat(selected.slice(0, -1));
+        // } else if (selectedIndex > 0) {
+        //     newSelected = newSelected.concat(
+        //         selected.slice(0, selectedIndex),
+        //         selected.slice(selectedIndex + 1),
+        //     );
+        // }
+        selected.includes(name)?setSelected([]):setSelected([name]);
     };
 
     const handleChangePage = (event, newPage) => {
@@ -280,7 +287,7 @@ function MainTable({addAirport, setHoveredAirport}) {
     return (
         <Box sx={{ width: '100%' }}>
             <Paper sx={{ width: '100%', mb: 2 }}>
-                <EnhancedTableToolbar numSelected={selected.length} />
+                <EnhancedTableToolbar selected={selected} />
                 <TableContainer>
                     <Table
                         sx={{ minWidth: 750 }}
@@ -307,12 +314,12 @@ function MainTable({addAirport, setHoveredAirport}) {
                                     return (
                                         <TableRow
                                             hover
-                                            onClick={(event) => handleClick(event, row.name)}
+                                            onClick={(event) => {handleClick(event, row.name); setHoveredAirport(row)}}
                                             aria-checked={isItemSelected}
                                             tabIndex={-1}
                                             key={row.name}
                                             selected={isItemSelected}
-                                            onMouseEnter={()=>{setHoveredAirport(row)}}
+                                            onMouseEnter={()=>{selected.length===0 && setHoveredAirport(row)}}
                                         >
                                             <TableCell
                                                 component="th"

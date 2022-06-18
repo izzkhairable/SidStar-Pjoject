@@ -5,7 +5,6 @@ const supertest = require('supertest');
 const requestWithSupertest = supertest(server);
 
 jest.mock("node-fetch", () => (url, data) => {
-    console.log("Sanity check", url, data)
     return {
         "json": ()=>[{
             "uid": "WSAP",

@@ -5,7 +5,6 @@ jest.mock("../components/DrawerHeader", () => () => {
   return <div>DrawerHeaderMockComponent</div>;
 });
 jest.mock("../components/MainTable", () => ({addAirport}) => {
-  console.log("This is addAirport", addAirport)
   addAirport({
     "uid": "WIDD",
     "name": "WIDD",
