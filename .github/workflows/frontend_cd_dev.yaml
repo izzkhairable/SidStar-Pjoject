@@ -1,4 +1,4 @@
-name: Frontend CD
+name: Frontend CD Dev
 
 on:
   pull_request:
