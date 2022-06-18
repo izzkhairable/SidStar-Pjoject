@@ -33,7 +33,7 @@ function Row(props) {
           <IconButton
             aria-label="expand row"
             size="small"
-            onClick={() => setOpen(!open)}
+            onClick={() => {setOpen(!open);!open? props.setSelectedSidOrStarDropdown(row):props.setSelectedSidOrStarDropdown(null); }}
           >
             {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
           </IconButton>
@@ -79,25 +79,27 @@ function Row(props) {
 
 Row.propTypes = {
   row: PropTypes.shape({
-    history: PropTypes.arrayOf(
-      PropTypes.shape({
-        amount: PropTypes.number.isRequired,
-        customerId: PropTypes.string.isRequired,
-        date: PropTypes.string.isRequired,
-      }),
-    ).isRequired,
-    name: PropTypes.string.isRequired,
+      name:PropTypes.string.isRequired,
+      waypoints: PropTypes.arrayOf(
+        PropTypes.shape({
+          uid: PropTypes.string.isRequired,
+          name: PropTypes.string.isRequired,
+          lat: PropTypes.number.isRequired,
+          lng: PropTypes.number.isRequired,
+
+        }),
+      )
   }).isRequired,
 };
 
 
-function CollapsibleTable({selectedSidOrStar, selectedAirport}) {
+function CollapsibleTable({selectedSidOrStar, selectedAirport, addSidsStars, setSelectedSidOrStarDropdown}) {
   const [rows, setRows] = React.useState([]);
     
   React.useEffect(() => {
-    console.log("I am in the useeffect")
+    // console.log("I am in the useeffect")
     if(selectedAirport && selectedSidOrStar){
-      console.log("I am in the useeffec2t")
+      // console.log("I am in the useeffec2t")
       getRows(selectedSidOrStar, selectedAirport)
     }
       
@@ -106,6 +108,7 @@ function CollapsibleTable({selectedSidOrStar, selectedAirport}) {
   
   const getRows = async (selectedSidOrStar, selectedAirport) => await sidsStars(selectedSidOrStar, selectedAirport.icao).then(
     (raw_rows) => raw_rows.map((row) => {
+        addSidsStars(row)
         return createData(row.name, row.waypoints)
     }))
     .then((rows) => {
@@ -126,7 +129,7 @@ function CollapsibleTable({selectedSidOrStar, selectedAirport}) {
         </TableHead>
         <TableBody>
           {rows.map((row) => (
-            <Row key={row.name} row={row} />
+            <Row key={row.name} row={row} setSelectedSidOrStarDropdown={setSelectedSidOrStarDropdown} />
           ))}
         </TableBody>
       </Table>

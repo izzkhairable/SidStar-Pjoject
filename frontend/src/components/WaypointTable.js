@@ -52,9 +52,9 @@ function CollapsibleTable({selectedSidOrStar, selectedAirport}) {
   const [rows, setRows] = React.useState([]);
     
   React.useEffect(() => {
-    console.log("I am in the useeffect")
+    // console.log("I am in the useeffect")
     if(selectedAirport && selectedSidOrStar){
-      console.log("I am in the useeffec2t")
+      // console.log("I am in the useeffec2t")
       getRows(selectedSidOrStar, selectedAirport)
     }
       

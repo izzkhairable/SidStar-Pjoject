@@ -1,14 +1,29 @@
 import * as React from 'react';
 import SidStarTable from '../SidStarTable';
 import WaypointTable from '../WaypointTable';
-import Map from '../Map'
+import SidStarMap from '../SidStarMap'
 import { Stack } from '@mui/material';
 
 function DisplaySidStar({selectedSidOrStar, selectedAirport}) {
-	return (<Stack direction="row" gap={2} >
-		<SidStarTable selectedAirport={selectedAirport} selectedSidOrStar={selectedSidOrStar}></SidStarTable>
+	const [sidsStars, setSidsStars] = React.useState([])
+	const [selectedSidOrStarDropdown, setSelectedSidOrStarDropdown] = React.useState(null)
+	// const [hoveredWaypoint, setHoveredWaypoint] = React.useState(null)
+	const addSidsStars = (sidStar) => {
+		let copy = sidsStars
+		copy.push(sidStar)
+		setSidsStars(copy)
+	}
+
+	React.useEffect(()=>{
+		// console.log("This is sidsStars", sidsStars)
+	}, [sidsStars])
+
+	return (<>
+		<SidStarMap sidsStars={sidsStars} selectedSidOrStarDropdown={selectedSidOrStarDropdown} selectedAirport={selectedAirport}/>
+		<Stack direction="row" gap={2} >
+		<SidStarTable addSidsStars={addSidsStars} selectedAirport={selectedAirport} selectedSidOrStar={selectedSidOrStar} setSelectedSidOrStarDropdown={setSelectedSidOrStarDropdown}></SidStarTable>
 		<WaypointTable selectedAirport={selectedAirport} selectedSidOrStar={selectedSidOrStar}></WaypointTable>
-	</Stack>)
+	</Stack></>)
 }
 
 export default DisplaySidStar;

@@ -25,7 +25,7 @@ const Map = ({airports, hoveredAirport}) => {
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         {displayAirportMarkers}
-        {hoveredAirport&&<UpdateMapCentre mapCentre={center} />}
+        {<UpdateMapCentre mapCentre={center} />}
     </MapContainer>)
 }
 
