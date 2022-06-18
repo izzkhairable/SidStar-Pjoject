@@ -1,4 +1,4 @@
-import { MapContainer, TileLayer, Marker, Popup, Circle, CircleMarker} from 'react-leaflet'
+import { Marker, CircleMarker} from 'react-leaflet'
 const AirportMarker = ({lat,lng}) => {
     const redOptions = { color: 'red' }
     return (

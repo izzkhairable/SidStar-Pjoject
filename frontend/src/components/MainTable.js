@@ -13,7 +13,6 @@ import TableSortLabel from '@mui/material/TableSortLabel';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
-import Checkbox from '@mui/material/Checkbox';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -102,7 +101,7 @@ const headCells = [
 ];
 
 function EnhancedTableHead(props) {
-    const { onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort } =
+    const {  order, orderBy, onRequestSort } =
         props;
     const createSortHandler = (property) => (event) => {
         onRequestSort(event, property);
@@ -232,7 +231,7 @@ function MainTable({addAirport, setHoveredAirport}) {
     const handleSelectAllClick = (event) => {
         if (event.target.checked) {
             const newSelecteds = rows.map((n) => n.name);
-            setSelected(newSelecteds);
+            setSelected(newSelecteds[-1]);
             return;
         }
         setSelected([]);
@@ -241,7 +240,7 @@ function MainTable({addAirport, setHoveredAirport}) {
     const handleClick = (event, name) => {
         const selectedIndex = selected.indexOf(name);
         let newSelected = [];
-
+        
         if (selectedIndex === -1) {
             newSelected = newSelected.concat(selected, name);
         } else if (selectedIndex === 0) {
@@ -256,6 +255,7 @@ function MainTable({addAirport, setHoveredAirport}) {
         }
 
         setSelected(newSelected);
+        console.log("This is selected", selected)
     };
 
     const handleChangePage = (event, newPage) => {
