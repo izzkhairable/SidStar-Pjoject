@@ -1,9 +1,9 @@
 FROM node:13.12.0-alpine
-RUN --mount=type=secret,id=API_KEY \
-  cat /run/secrets/API-KEY
 COPY package.json ./
 COPY package-lock.json ./
 RUN npm install
 COPY . ./
+RUN --mount=type=secret,id=api_key \
+  cat /run/secrets/api_key
 
 CMD npm start
