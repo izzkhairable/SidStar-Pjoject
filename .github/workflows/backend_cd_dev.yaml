@@ -2,7 +2,7 @@ name: Backend CD Dev
 
 on:
   pull_request:
-    branches: [ "#[0-9]*" ]
+    branches: [ main]
     paths:
       - 'backend/**'
 

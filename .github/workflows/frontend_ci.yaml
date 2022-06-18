@@ -6,7 +6,7 @@ on:
     paths:
       - 'frontend/**'
   pull_request:
-    branches: [ "#[0-9]*" ]
+    branches: [ main]
     paths:
       - 'frontend/**'
 jobs:
