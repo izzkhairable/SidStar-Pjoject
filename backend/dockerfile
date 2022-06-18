@@ -3,7 +3,7 @@ COPY package.json ./
 COPY package-lock.json ./
 RUN npm install
 COPY . ./
-RUN --mount=type=secret,id=api_key \
-  cat /run/secrets/api_key
+RUN --mount=type=secret,id=API_KEY \
+  cat /run/secrets/API_KEY
 
 CMD npm start
