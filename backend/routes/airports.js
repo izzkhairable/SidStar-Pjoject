@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var fetch = require('node-fetch');
-require('dotenv').config({ path: '../../.env' });
+require('dotenv').config({path:__dirname+'/./../../.env'})
 
 /* GET users listing. */
 router.get('/', async function (req, res, next) {
