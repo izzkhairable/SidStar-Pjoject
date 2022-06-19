@@ -9,7 +9,7 @@ require('dotenv').config({path:__dirname+'/./../../.env'})
 router.get('/', async function (req, res, next) {
     const response = await fetch('https://open-atms.airlab.aero/api/v1/airac/airports', {
     method: 'get',
-    headers: {'api-key': 'G9Tw58HE6HDzyq94HFmnd2yOymAuU32k2mEgL3oTVbhLl6E1opu5Hqxb5BASwCWv' }
+    headers: {'api-key': process.env.API_KEY}
   }).then((response)=>{
       return response.json()
   })
