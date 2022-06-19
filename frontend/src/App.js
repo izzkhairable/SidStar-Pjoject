@@ -15,7 +15,7 @@ function App(props) {
 				<DrawerHeader />
 				{(selectedAirport==null || selectedSidOrStar==null)?
 				(<DisplayAirport setSelectedAirport={setSelectedAirport} setSelectedSidOrStar={setSelectedSidOrStar}/>):
-				(<DisplaySidsStars selectedSidOrStar={selectedSidOrStar} selectedAirport={selectedAirport}/>)}
+				(<DisplaySidsStars selectedSidOrStar={selectedSidOrStar} selectedAirport={selectedAirport} setSelectedSidOrStar={setSelectedSidOrStar}/>)}
 			</Box>
 		</Box>
 	</>)
