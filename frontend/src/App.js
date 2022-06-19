@@ -11,6 +11,7 @@ function App({ExtSelectedAirport, ExtSelectedSidOrStar}) {
 	React.useEffect(()=>{
 		setSelectedAirport(ExtSelectedAirport)
 		setSelectedSidOrStar(ExtSelectedSidOrStar)
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	},[])
 
 

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import AirportTable from '../AirportTable';
 import Map from '../Map'
-import { Stack, Button} from '@mui/material';
+import { Stack} from '@mui/material';
 
 function DisplayAirport({setSelectedAirport, setSelectedSidOrStar}) {
 	const [airports, setAirports] = React.useState([])
@@ -14,6 +14,7 @@ function DisplayAirport({setSelectedAirport, setSelectedSidOrStar}) {
 
 	React.useEffect(()=>{
 		setSelectedAirport(hoveredAirport)
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	},[hoveredAirport])
 
 	return (<Stack spacing={2}>
