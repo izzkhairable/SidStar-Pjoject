@@ -4,13 +4,19 @@ import Box from '@mui/material/Box';
 import DrawerHeader from './components/DrawerHeader';
 import DisplayAirport from './components/main/DisplayAirport';
 import DisplaySidsStars from './components/main/DisplaySidsStars';
-function App(props) {
+function App({ExtSelectedAirport, ExtSelectedSidOrStar}) {
 	const [selectedAirport, setSelectedAirport]=React.useState(null)
 	const [selectedSidOrStar, setSelectedSidOrStar]=React.useState(null)
 
+	React.useEffect(()=>{
+		setSelectedAirport(ExtSelectedAirport)
+		setSelectedSidOrStar(ExtSelectedSidOrStar)
+	},[])
+
+
 	return (<>
 		<Box sx={{ display: 'flex' }}>
-			<MainDrawer props={props}></MainDrawer>
+			<MainDrawer></MainDrawer>
 			<Box component="main" sx={{ flexGrow: 1, p: 2 }}>
 				<DrawerHeader />
 				{(selectedAirport==null || selectedSidOrStar==null)?

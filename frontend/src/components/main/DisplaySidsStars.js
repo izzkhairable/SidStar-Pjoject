@@ -35,7 +35,7 @@ function DisplaySidStar({selectedSidOrStar, selectedAirport, setSelectedSidOrSta
 			
 			<SidStarMap sidsStars={sidsStars} selectedSidOrStarDropdown={selectedSidOrStarDropdown} selectedAirport={selectedAirport} selectedSidOrStar={selectedSidOrStar} height={'50vh'}/>
 			<Stack direction="row" spacing={2}>
-				<Button size="small" variant="outlined" sx={{width:250}} onClick={()=>{setSelectedSidOrStar(null)}}startIcon={<ArrowBackIcon />}>Back to Airports</Button>
+				<Button data-testid="airport-button" size="small" variant="outlined" sx={{width:250}} onClick={()=>{setSelectedSidOrStar(null)}}startIcon={<ArrowBackIcon />}>Back to Airports</Button>
 			
 				<ToggleButtonGroup
 				color="primary"
@@ -43,8 +43,8 @@ function DisplaySidStar({selectedSidOrStar, selectedAirport, setSelectedSidOrSta
 				exclusive
 				onChange={handleChange}
 				>
-					<ToggleButton value="sids">SID</ToggleButton>
-					<ToggleButton value="stars">STAR</ToggleButton>
+					<ToggleButton value="sids" data-testid="sid-toggle">SID</ToggleButton>
+					<ToggleButton value="stars" data-testid="star-toggle">STAR</ToggleButton>
 				</ToggleButtonGroup>
 				
 			</Stack>
