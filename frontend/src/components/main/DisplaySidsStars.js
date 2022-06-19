@@ -19,10 +19,12 @@ function DisplaySidStar({selectedSidOrStar, selectedAirport}) {
 	}, [sidsStars])
 
 	return (<>
-		<SidStarMap sidsStars={sidsStars} selectedSidOrStarDropdown={selectedSidOrStarDropdown} selectedAirport={selectedAirport} selectedSidOrStar={selectedSidOrStar}/>
-		<Stack direction="row" gap={2} >
+		<SidStarMap sidsStars={sidsStars} selectedSidOrStarDropdown={selectedSidOrStarDropdown} selectedAirport={selectedAirport} selectedSidOrStar={selectedSidOrStar} height={'50vh'}/>
+		<Stack direction="row" sx={{
+      height:'40vh'  
+    }}>
 		<SidStarTable addSidsStars={addSidsStars} selectedAirport={selectedAirport} selectedSidOrStar={selectedSidOrStar} setSelectedSidOrStarDropdown={setSelectedSidOrStarDropdown}></SidStarTable>
-		<WaypointTable selectedAirport={selectedAirport} selectedSidOrStar={selectedSidOrStar}></WaypointTable>
+		<WaypointTable selectedAirport={selectedAirport} selectedSidOrStar={selectedSidOrStar} ></WaypointTable>
 	</Stack></>)
 }
 

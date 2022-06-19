@@ -1,7 +1,7 @@
 import { MapContainer, TileLayer, useMap } from 'react-leaflet'
 import AirportMarker from './AirportMarker'
 import * as React from 'react';
-const Map = ({airports, hoveredAirport}) => {
+const Map = ({airports, hoveredAirport, height}) => {
     const [center, setCenter]=React.useState([1.1208333333333333,104.11861111111111])
     
     React.useEffect(()=>{
@@ -19,7 +19,7 @@ const Map = ({airports, hoveredAirport}) => {
         return (<AirportMarker lat={airport.lat} lng={airport.lng} key={index} />)
     })
 
-    return (<MapContainer center={[1.1208333333333333,104.11861111111111]} zoom={13} scrollWheelZoom={false} style={{ height: 500 }}>
+    return (<MapContainer center={[1.1208333333333333,104.11861111111111]} zoom={13} scrollWheelZoom={false} style={{ height: height }}>
         <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

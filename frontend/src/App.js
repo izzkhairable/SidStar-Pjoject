@@ -11,7 +11,7 @@ function App(props) {
 	return (<>
 		<Box sx={{ display: 'flex' }}>
 			<MainDrawer props={props}></MainDrawer>
-			<Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+			<Box component="main" sx={{ flexGrow: 1, p: 2 }}>
 				<DrawerHeader />
 				{(selectedAirport==null || selectedSidOrStar==null)?
 				(<DisplayAirport setSelectedAirport={setSelectedAirport} setSelectedSidOrStar={setSelectedSidOrStar}/>):

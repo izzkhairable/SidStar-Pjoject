@@ -16,8 +16,8 @@ function DisplayAirport({setSelectedAirport, setSelectedSidOrStar}) {
 	},[hoveredAirport])
 
 	return (<>
-		<Map airports={airports} hoveredAirport={hoveredAirport} />
-		<AirportTable addAirport={addAirport} setHoveredAirport={setHoveredAirport} setSelectedSidOrStar={setSelectedSidOrStar}></AirportTable>
+		<Map airports={airports} hoveredAirport={hoveredAirport} height={'50vh'} />
+		<AirportTable addAirport={addAirport} setHoveredAirport={setHoveredAirport} setSelectedSidOrStar={setSelectedSidOrStar} style={{height: '50vh'}}></AirportTable>
 	</>)
 }
 

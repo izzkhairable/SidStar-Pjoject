@@ -28,8 +28,8 @@ function Row(props) {
 
   return (
     <React.Fragment>
-      <TableRow sx={{ '& > *': { borderBottom: 'unset' } }}>
-        <TableCell>
+      <TableRow sx={{ '& > *': { borderBottom: 'unset'} }} >
+        <TableCell sx={{width:  1/20, borderBottom: 'unset'}}>
           <IconButton
             aria-label="expand row"
             size="small"
@@ -38,7 +38,9 @@ function Row(props) {
             {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
           </IconButton>
         </TableCell>
-        <TableCell component="th" scope="row">
+       
+
+        <TableCell align='left'>
           {row.name}
         </TableCell>
       </TableRow>
@@ -61,7 +63,7 @@ function Row(props) {
                 <TableBody>
                   {row.waypoints.map((waypoint,index) => (
                     <TableRow key={waypoint.uid}>
-                      <TableCell>{index+2}</TableCell>
+                      <TableCell>{(props.selectedSidOrStar==='sids' && index+2)||(props.selectedSidOrStar==='stars' && index+1)}</TableCell>
                       <TableCell component="th" scope="row">
                         {waypoint.name}
                       </TableCell>
@@ -118,20 +120,19 @@ function CollapsibleTable({selectedSidOrStar, selectedAirport, addSidsStars, set
         return
     })
   return (
-    <TableContainer component={Paper} sx={{
-      height: 400    
-    }}
+    <TableContainer component={Paper} 
   >
       <Table aria-label="collapsible table" sx={{height:400, overflow:'auto'}} stickyHeader>
         <TableHead>
           <TableRow>
             <TableCell></TableCell>
             <TableCell>{selectedSidOrStar==='sids'? 'SID': 'STAR'} Name</TableCell>
+  
           </TableRow>
         </TableHead>
         <TableBody>
           {rows.map((row) => (
-            <Row key={row.name} row={row} setSelectedSidOrStarDropdown={setSelectedSidOrStarDropdown} />
+            <Row key={row.name} row={row} setSelectedSidOrStarDropdown={setSelectedSidOrStarDropdown} selectedSidOrStar={selectedSidOrStar} />
           ))}
         </TableBody>
       </Table>

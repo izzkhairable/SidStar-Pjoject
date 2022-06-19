@@ -3,7 +3,7 @@ import { MapContainer, TileLayer, useMap, Polyline, CircleMarker, Marker} from '
 import StarSidLine from './SidStarLine'
 import L from 'leaflet';
 import * as React from 'react';
-const Map = ({sidsStars,selectedSidOrStarDropdown, selectedAirport,selectedSidOrStar}) => {
+const Map = ({sidsStars,selectedSidOrStarDropdown, selectedAirport,selectedSidOrStar, height}) => {
     const [polylineData, setPolylineData]=React.useState(null)
  
 
@@ -69,7 +69,7 @@ const Map = ({sidsStars,selectedSidOrStarDropdown, selectedAirport,selectedSidOr
 
 
 
-    return (polylineData!=null &&(<MapContainer center={[1.1208333333333333,104.11861111111111]} zoom={13} scrollWheelZoom={false} style={{ height: 500 }}>
+    return (polylineData!=null &&(<MapContainer center={[1.1208333333333333,104.11861111111111]} zoom={13} scrollWheelZoom={false} style={{ height: height }}>
         <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

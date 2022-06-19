@@ -70,9 +70,7 @@ function CollapsibleTable({selectedSidOrStar, selectedAirport}) {
         return
     })
   return (
-    <TableContainer component={Paper} sx={{
-      height: 400    
-    }}
+    <TableContainer component={Paper} 
   >
       <Table aria-label="collapsible table" sx={{height:400, overflow:'auto'}} stickyHeader>
         <TableHead>
