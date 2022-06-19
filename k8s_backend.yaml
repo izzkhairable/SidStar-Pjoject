@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sidstatbackend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: sidstatbackend
+  template:
+    metadata:
+      labels:
+        app: sidstatbackend
+    spec:
+      containers:
+      - name: sidstatbackend
+        image: izzkhair/sid_stat_backend
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "250m"
+        ports:
+        - containerPort: 3333
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sidstatbackend
+spec:
+  type: LoadBalancer
+  selector:
+    app: sidstatbackend
+  ports:
+  - port: 80
+    targetPort: 3333
