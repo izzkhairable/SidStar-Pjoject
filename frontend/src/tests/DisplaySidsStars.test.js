@@ -73,7 +73,7 @@ test('App Component When Loaded', () => {
     "alt": 22,
     "iata": null
     }
-  render(<App selectedSidOrStar='sids' selectedAirport={sampleAirport} setSelectedSidOrStar={()=>{}}/>);
+  render(<App selectedSidOrStar='stars' selectedAirport={sampleAirport} setSelectedSidOrStar={()=>{}}/>);
   fireEvent(
     screen.getByTestId('star-toggle'),
     new MouseEvent('click',{
@@ -93,7 +93,7 @@ test('App Component When Loaded', () => {
   expect(screen.getByText('SidStarMapComponent')).toBeInTheDocument();
 
 });
-test('App Component When Loaded', () => {
+test('App Component When Loaded return', () => {
   const sampleAirport={
     "uid": "WIDD",
     "name": "WIDD",
@@ -133,7 +133,7 @@ test('App Component When Loaded Stars', () => {
     "alt": 22,
     "iata": null
     }
-  render(<App selectedSidOrStar='stars' selectedAirport={sampleAirport} setSelectedSidOrStar={()=>{}}/>);
+  render(<App selectedSidOrStar='s' selectedAirport={sampleAirport} setSelectedSidOrStar={()=>{}}/>);
   
   expect(screen.getByText('SidStarTableComponent')).toBeInTheDocument();
   expect(screen.getByText('WaypointTableComponent')).toBeInTheDocument();

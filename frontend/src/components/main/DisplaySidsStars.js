@@ -3,9 +3,7 @@ import SidStarTable from '../SidStarTable';
 import WaypointTable from '../WaypointTable';
 import SidStarMap from '../SidStarMap'
 import { Stack, Button, Typography} from '@mui/material';
-import DeleteIcon from '@mui/icons-material/Delete';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import ArrowBack from '@mui/icons-material/ArrowBack';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 
@@ -30,7 +28,7 @@ function DisplaySidStar({selectedSidOrStar, selectedAirport, setSelectedSidOrSta
 	return (<Stack spacing={2}>
 			<Stack direction="row" spacing={1}>
 				<Typography variant='h5' sx={{fontWeight: 'bold'}}>{selectedAirport.icao} -</Typography>
-				<Typography variant='h5'>{selectedSidOrStar=='stars'? 'Standard Terminal Arrival Route':'Standard Instrument Departure Route'}</Typography>
+				<Typography variant='h5'>{selectedSidOrStar==='stars'? 'Standard Terminal Arrival Route':'Standard Instrument Departure Route'}</Typography>
 			</Stack>
 			
 			<SidStarMap sidsStars={sidsStars} selectedSidOrStarDropdown={selectedSidOrStarDropdown} selectedAirport={selectedAirport} selectedSidOrStar={selectedSidOrStar} height={'50vh'}/>

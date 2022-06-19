@@ -4,6 +4,7 @@ import * as React from 'react';
 const Map = ({airports, hoveredAirport, height}) => {
     const [center, setCenter]=React.useState([1.1208333333333333,104.11861111111111])
     
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     React.useEffect(()=>{
         const new_center=!hoveredAirport?  [1.1208333333333333,104.11861111111111]:[hoveredAirport.lat,hoveredAirport.lng]
         setCenter(new_center)

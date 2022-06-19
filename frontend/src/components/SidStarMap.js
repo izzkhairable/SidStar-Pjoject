@@ -27,6 +27,7 @@ const Map = ({sidsStars,selectedSidOrStarDropdown, selectedAirport,selectedSidOr
     }
       React.useEffect(()=>{
             DisplayAirportMarkers()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [selectedSidOrStarDropdown,polylineData])
 
 
