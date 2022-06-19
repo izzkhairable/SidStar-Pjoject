@@ -4,13 +4,13 @@ import * as React from 'react';
 import getDistance from './CalculateDistance';
 const Map = ({sidsStars,selectedSidOrStarDropdown, selectedAirport,selectedSidOrStar, height}) => {
     const [polylineData, setPolylineData]=React.useState(null)
-    const [center, setCenter]=React.useState([1.1208333333333333,104.11861111111111])
+    const [center, setCenter]=React.useState([25.47182,16.36553])
     const [isChangedCenter, setIsChangedCenter]=React.useState(false)
     
-    function UpdateMapCentre(new_center) {
+    function UpdateMapCentre({mapCentre, polylineData}) {
         
         const map = useMap();
-        if( polylineData.length===1 && !isChangedCenter){
+        if( polylineData && polylineData.length===1 && !isChangedCenter){
         let totalDistance=0
         for (let i = 1; i < polylineData[0].length; i++)
         {
@@ -18,31 +18,27 @@ const Map = ({sidsStars,selectedSidOrStarDropdown, selectedAirport,selectedSidOr
             let pair2 = [polylineData[0][i][0],polylineData[0][i][1]];
             totalDistance+=getDistance(pair1, pair2)
         }
-        map.panTo(new_center.mapCentre);
-        console.log("PANNING!")
-        map.setZoom((totalDistance>100&&7.5)||(totalDistance>70&&8)||(totalDistance>50&&9)||(totalDistance>0&&10))
+        const zoomLevel=(totalDistance>100&&9)||(totalDistance>70&&10)||(totalDistance>50&&11)||(totalDistance>0&&12)
+        map.setView(mapCentre, zoomLevel);
         
-        setPolylineData(null);
         setIsChangedCenter(true)
         return null;
-        }else{
-            map.panTo(new_center.mapCentre);
         }
     }
       React.useEffect(()=>{
             DisplayAirportMarkers()
     }, [selectedSidOrStarDropdown,polylineData])
 
+
       React.useEffect(()=>{
-            if(selectedSidOrStarDropdown && polylineData.length===1){
-                const position=Math.round(polylineData.length/2)
-                setCenter(polylineData[0][position])
-            }else{
-                setCenter([selectedAirport.lat, selectedAirport.lng])
-                setIsChangedCenter(false)
-            }
-            
+        if( polylineData && polylineData.length===1){
+            const position=Math.ceil(polylineData.length/2)
+            setCenter(polylineData[0][position])
+            setIsChangedCenter(false)
+        }
+     
     }, [selectedSidOrStarDropdown, polylineData])
+
 
 
 
@@ -60,7 +56,6 @@ const Map = ({sidsStars,selectedSidOrStarDropdown, selectedAirport,selectedSidOr
                     
                     polylineSingle.unshift([selectedAirport.lat, selectedAirport.lng])
                 }
-            
             setPolylineData([polylineSingle])
         }
         else if (selectedSidOrStarDropdown===null){
@@ -84,7 +79,7 @@ const Map = ({sidsStars,selectedSidOrStarDropdown, selectedAirport,selectedSidOr
 
     const MultipleCircleMarkers=()=>polylineData.map((polylineSingle)=>{
         return polylineSingle.map((singlePoint, index)=>{
-            let text = L.divIcon({html:  `<h1 align='center'>Point ${index+1}</h1>`});
+            let text = L.divIcon({html:  `<h3 align='center'>Point ${index+1}</h3>`});
     
             return (<CircleMarker center={singlePoint} pathOptions={{ color:'red' }} radius={10}>
                 {selectedSidOrStarDropdown && (<Marker position={singlePoint} icon={text} />)}
@@ -100,17 +95,9 @@ const Map = ({sidsStars,selectedSidOrStarDropdown, selectedAirport,selectedSidOr
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        {/* <displayAirportMarkers/> */}
-        {/* <StarSidLine polyline={newSidsStars} /> */}
-        {/* <StarSidLine polyline={polyline} /> */}
-        {/* {hoveredAirport&&<UpdateMapCentre mapCentre={center} />} */}
-        {/* <>{displayAirportMarkers}</> */}
-        {/* {<UpdateMapCentre sidsStars={sidsStars} />} */}
-        {/* <DisplayAirportMarkers/> */}
         <MultiplePolyLine/>
         <MultipleCircleMarkers/>
-        <UpdateMapCentre mapCentre={center} polyline={polylineData} />
-        {/* <Polyline pathOptions={{ color:'red' }} positions={polylineData} /> */}
+        <UpdateMapCentre mapCentre={center} polylineData={polylineData} />
     </MapContainer>))
 }
 
