@@ -1,10 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import App from '../components/main/DisplayAirport';
+// import AirportTable from '../AirportTable';
+// import Map from '../Map'
 
-jest.mock("../components/DrawerHeader", () => () => {
-  return <div>DrawerHeaderMockComponent</div>;
-});
-jest.mock("../components/MainTable", () => ({addAirport}) => {
+jest.mock("../components/AirportTable", () => ({addAirport}) => {
   addAirport({
     "uid": "WIDD",
     "name": "WIDD",
@@ -22,7 +21,7 @@ jest.mock("../components/Map", () => () => {
 });
 
 test('App Component When Loaded', () => {
-  render(<App />);
+  render(<App setSelectedAirport={()=>{}}/>);
   expect(screen.getByText('MainTableMockComponent')).toBeInTheDocument();
   expect(screen.getByText('MapMockComponent')).toBeInTheDocument();
 });

@@ -148,7 +148,7 @@ EnhancedTableHead.propTypes = {
 };
 
 const EnhancedTableToolbar = (props) => {
-    const { selected } = props;
+    const { selected, setSelectedSidOrStar } = props;
 
     return (
         <Toolbar
@@ -184,10 +184,10 @@ const EnhancedTableToolbar = (props) => {
             {selected.length > 0 ? (
                 <Stack spacing={2} direction="row">
                 <Tooltip title="View SID">
-                    <Button variant="contained" color="success" startIcon={<FlightTakeoffIcon />}>SIDs</Button>
+                    <Button onClick={()=>{setSelectedSidOrStar('sids')}} variant="contained" color="success" startIcon={<FlightTakeoffIcon />}>SIDs</Button>
                 </Tooltip>
                 <Tooltip title="View Star">
-                    <Button variant="contained" color="success" startIcon={<FlightLandIcon />}>STARs</Button>
+                    <Button onClick={()=>{setSelectedSidOrStar('stars')}} variant="contained" color="success" startIcon={<FlightLandIcon />}>STARs</Button>
                 </Tooltip>
                 </Stack>
              
@@ -206,7 +206,7 @@ EnhancedTableToolbar.propTypes = {
     selected: PropTypes.array,
 };
 
-function MainTable({addAirport, setHoveredAirport}) {
+function MainTable({addAirport, setHoveredAirport, setSelectedSidOrStar}) {
     const [order, setOrder] = React.useState('asc');
     const [orderBy, setOrderBy] = React.useState('calories');
     const [selected, setSelected] = React.useState([]);
@@ -246,22 +246,6 @@ function MainTable({addAirport, setHoveredAirport}) {
     };
 
     const handleClick = (event, name) => {
-        // const selectedIndex = selected.indexOf(name);
-        // console.log("This is selected", selected)
-        // let newSelected = [];
-        
-        // if (selectedIndex === -1) {
-        //     newSelected = newSelected.concat(selected, name);
-        // } else if (selectedIndex === 0) {
-        //     newSelected = newSelected.concat(selected.slice(1));
-        // } else if (selectedIndex === selected.length - 1) {
-        //     newSelected = newSelected.concat(selected.slice(0, -1));
-        // } else if (selectedIndex > 0) {
-        //     newSelected = newSelected.concat(
-        //         selected.slice(0, selectedIndex),
-        //         selected.slice(selectedIndex + 1),
-        //     );
-        // }
         selected.includes(name)?setSelected([]):setSelected([name]);
     };
 
@@ -285,12 +269,11 @@ function MainTable({addAirport, setHoveredAirport}) {
         page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
 
     return (
-        <Box sx={{ width: '100%' }}>
+        <Box sx={{ width: '100%'}}>
             <Paper sx={{ width: '100%', mb: 2 }}>
-                <EnhancedTableToolbar selected={selected} />
+                <EnhancedTableToolbar selected={selected} setSelectedSidOrStar={setSelectedSidOrStar} />
                 <TableContainer>
                     <Table
-                        sx={{ minWidth: 750 }}
                         aria-labelledby="tableTitle"
                         size={dense ? 'small' : 'medium'}
                     >
