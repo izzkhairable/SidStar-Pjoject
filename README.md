@@ -196,7 +196,7 @@ Use this space to show useful examples of how a project can be used. Additional 
 - [ ] Add Test Coverage for more paths
 
 
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/izzkhairable/SidStar-Project/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -214,9 +214,9 @@ Distributed under the GPL-3.0 license. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+Izzat - izzkhair@gmail.com
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Project Link: https://github.com/izzkhairable/SidStar-Project
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
