@@ -41,7 +41,7 @@
     <a href="http://a7549e33f9268413b88a597dc856c116-1871371642.ap-southeast-1.elb.amazonaws.com/"><strong>View Live Website »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+    <a href="http://a7549e33f9268413b88a597dc856c116-1871371642.ap-southeast-1.elb.amazonaws.com/">View Demo</a>
     ·
     <a href="https://github.com/izzkhairable/SidStar-Project/issues">Report Bug</a>
     ·
