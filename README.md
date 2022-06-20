@@ -98,7 +98,7 @@ Frameworks and Libraries Used
 
 
 <!-- GETTING STARTED -->
-## Getting Started Running Barebone without Container
+## Getting Started Barebone without Container
 
 Running the Backend & Frontend on your Local Computer
 
@@ -148,6 +148,24 @@ npm test
 3. Ensure that both Frontend and Backend has 100% Coverage
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+
+
+<!-- GETTING STARTED -->
+## Getting Started Docker with Container
+
+### Run Development Containers
+Development containers are pushed to DockerHub everytime a pull request to main is open
+```sh
+docker run --publish 3333:3333 -e API_KEY=<API_KEY> izzkhair/sid_stat_backend_dev:latest
+docker run --publish 3000:3000 izzkhair/sid_stat_fronend_dev:latest
+```
+
+### Run Production Containers
+Production containers are pushed to DockerHub everytime a commit is push to Main
+```sh
+docker run --publish 3333:3333 -e API_KEY=<API_KEY> izzkhair/sid_stat_backend:latest
+docker run --publish 3000:3000 izzkhair/sid_stat_fronend:latest
+```
 
 <!-- USAGE EXAMPLES -->
 ## Usage
