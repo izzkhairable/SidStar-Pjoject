@@ -221,6 +221,7 @@ Use this space to show useful examples of how a project can be used. Additional 
 - [ ] CD Direct Deploy to Kubernetes Cluster
 - [ ] Database for Redunduncy Purposes (In the event, API is down)
 - [ ] Add Test Coverage for more paths
+- [ ] Add SSL for Backend & Frontend Nodes
 
 
 See the [open issues](https://github.com/izzkhairable/SidStar-Project/issues) for a full list of proposed features (and known issues).
