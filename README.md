@@ -98,35 +98,38 @@ Frameworks and Libraries Used
 
 
 <!-- GETTING STARTED -->
-## Getting Started
+## Getting Started Running Barebone without Container
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
-
-### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+Running the Backend & Frontend on your Local Computer
 
 ### Installation
 
+This is an example of how to list things you need to use the software and how to install them.
+  ```sh
+  cd ../backend
+  npm install
+  cd ../frontend
+  npm install
+  ```
+
+### Running
+
 _Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Create a .env file in root directory
+2. Specify a new env variable
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   API_KEY=<PLACE YOUR API KEY>
    ```
-3. Install NPM packages
+3. Starting the Backend
    ```sh
-   npm install
+   cd ../backend
+   npm run dev
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
+4. Starting the Frontend
+   ```sh
+   cd ../frontend
+   npm start
    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
