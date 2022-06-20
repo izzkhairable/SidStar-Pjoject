@@ -91,7 +91,7 @@ Frameworks and Libraries Used
 * [Backend - Express.js](https://expressjs.com/)
 * [Frontend - React.js](https://reactjs.org/)
 * [Testing - Jest](https://jestjs.io/)
-
+* [CI/CD - GitHub Actions](https://github.com/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -103,8 +103,6 @@ Frameworks and Libraries Used
 Running the Backend & Frontend on your Local Computer
 
 ### Installation
-
-
 1. Install dependencies for Frontend
   ```sh
   cd ./frontend
@@ -117,9 +115,6 @@ Running the Backend & Frontend on your Local Computer
   ```
 
 ### Running
-
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
-
 1. Create a .env file in root directory
 2. Specify a new env variable
    ```sh
@@ -136,9 +131,23 @@ _Below is an example of how you can instruct your audience on installing and set
    npm start
    ```
 
+
+
+### Testing
+1. Testing the Frontend
+```sh
+cd ./frontend
+npm run test -- --coverage .
+```
+
+2. Testing the Backend
+```sh
+cd ../backend
+npm test
+```
+3. Ensure that both Frontend and Backend has 100% Coverage
+
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 <!-- USAGE EXAMPLES -->
 ## Usage
