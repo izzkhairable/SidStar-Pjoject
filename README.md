@@ -33,7 +33,7 @@
     <h1>SID-STAR Project</h1>
   </a>
 
-  <h3 align="center">View the Top Waypoints for a SID/STAR of An Airport</h3>
+  <h3 align="center">View the Top Waypoints for SID/STAR of An Airport</h3>
 
   <p align="center">
     You can run it locally or visit the live website
@@ -166,6 +166,25 @@ Production containers are pushed to DockerHub everytime a commit is push to Main
 docker run --publish 3333:3333 -e API_KEY=<API_KEY> izzkhair/sid_stat_backend:latest
 docker run --publish 3000:3000 izzkhair/sid_stat_fronend:latest
 ```
+
+<!-- GETTING STARTED -->
+## CI/CD Workflows
+
+### On push to Feature Branch
+ 1. Run test to ensure full coverage
+ 2. Build project 
+ 3. Run to validate build
+ 
+### On pull request from Feature Branch to Main Branch
+ 1. Run test to ensure full coverage
+ 2. Build project 
+ 3. Run to validate build
+ 4. Build Image 
+ 5. Push Image to Development Containers
+
+### On merge to Main Branch
+ 1. Build Image 
+ 2. Push Image to Production Containers
 
 <!-- USAGE EXAMPLES -->
 ## Usage
