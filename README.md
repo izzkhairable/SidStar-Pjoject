@@ -104,11 +104,15 @@ Running the Backend & Frontend on your Local Computer
 
 ### Installation
 
-This is an example of how to list things you need to use the software and how to install them.
+
+1. Install dependencies for Frontend
+  ```sh
+  cd ./frontend
+  npm install
+  ```
+2. Install dependencies for Backend
   ```sh
   cd ../backend
-  npm install
-  cd ../frontend
   npm install
   ```
 
@@ -185,7 +189,7 @@ Don't forget to give the project a star! Thanks again!
 <!-- LICENSE -->
 ## License
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+Distributed under the GPL-3.0 license. See `LICENSE.txt` for more information.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
