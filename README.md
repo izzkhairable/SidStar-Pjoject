@@ -30,22 +30,22 @@
 <br />
 <div align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <h1>SID-STAR Project</h1>
   </a>
 
-  <h3 align="center">Best-README-Template</h3>
+  <h3 align="center">View the Top Waypoints for a SID/STAR of An Airport</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
+    You can run it locally or visit the live website
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    <a href="http://a7549e33f9268413b88a597dc856c116-1871371642.ap-southeast-1.elb.amazonaws.com/"><strong>View Live Website »</strong></a>
     <br />
     <br />
     <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
+    <a href="https://github.com/izzkhairable/SidStar-Project/issues">Report Bug</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+    <a href="https://github.com/izzkhairable/SidStar-Project/issues">Request Feature</a>
   </p>
 </div>
 
@@ -81,38 +81,17 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-
-  <a href="https://github.com/othneildrew/Best-README-Template">
-        <img src="images/demo.gif" width="80" height="80">
-  </a>
-
-There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
-
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should implement DRY principles to the rest of your life :smile:
-
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
-
-Use the `BLANK_README.md` to get started.
-
-<p align="right">(<a href="#top">back to top</a>)</p>
+[![Product Name Screen Shot][product-screenshot]](https://example.com)
 
 
 
 ### Built With
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+Frameworks and Libraries Used
+* [Backend - Express.js](https://expressjs.com/)
+* [Frontend - React.js](https://reactjs.org/)
+* [Testing - Jest](https://jestjs.io/)
 
-* [Next.js](https://nextjs.org/)
-* [React.js](https://reactjs.org/)
-* [Vue.js](https://vuejs.org/)
-* [Angular](https://angular.io/)
-* [Svelte](https://svelte.dev/)
-* [Laravel](https://laravel.com)
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -240,16 +219,16 @@ Use this space to list resources you find helpful and would like to give credit 
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
-[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/izzkhairable/SidStar-Project.svg?style=for-the-badge
+[contributors-url]: https://github.com/izzkhairable/SidStar-Project/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/izzkhairable/SidStar-Project.svg?style=for-the-badge
 [forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
+[stars-shield]: https://img.shields.io/github/stars/izzkhairable/SidStar-Project.svg?style=for-the-badge
 [stars-url]: https://github.com/othneildrew/Best-README-Template/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
-[issues-url]: https://github.com/othneildrew/Best-README-Template/issues
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
+[issues-shield]: https://img.shields.io/github/issues/izzkhairable/SidStar-Project.svg?style=for-the-badge
+[issues-url]: https://github.com/izzkhairable/SidStar-Project/issues
+[license-shield]: https://img.shields.io/github/license/izzkhairable/SidStar-Project.svg?style=for-the-badge
+[license-url]: https://github.com/izzkhairable/SidStar-Project/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
-[product-screenshot]: images/screenshot.png
+[linkedin-url]: https://www.linkedin.com/in/izzkhair/
+[product-screenshot]: README_utils/demo.gif
